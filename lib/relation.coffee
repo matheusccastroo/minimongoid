@@ -1,5 +1,6 @@
 class @Relation extends Array
   constructor: (klass, args...) ->
+    super klass, args...
     @klass = klass
     @elems = args
     @selector = {}

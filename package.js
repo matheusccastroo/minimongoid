@@ -1,12 +1,12 @@
 Package.describe({
   name: "kaptron:minimongoid",
   summary: "Mongoid inspired model architecture",
-  version: "0.9.8",
+  version: "0.9.9",
   git: "https://github.com/Exygy/minimongoid.git"
 });
 
-Package.on_use(function (api) {
-  api.versionsFrom("METEOR@0.9.0");
+Package.onUse(function (api) {
+  api.versionsFrom(["2.3.5"]);
   var both = ['client', 'server'];
   api.use(['underscore', "mrt:underscore-string-latest@2.3.3", 'coffeescript'], both);
   files = [
@@ -15,13 +15,13 @@ Package.on_use(function (api) {
     'lib/has_and_belongs_to_many_relation.coffee',
     'lib/minimongoid.coffee'
   ];
-  api.add_files(files, both);
+  api.addFiles(files, both);
 });
 
-Package.on_test(function (api) {
+Package.onTest(function (api) {
   var both = ['client', 'server'];
   api.use(["kaptron:minimongoid", 'tinytest', 'coffeescript'], both);
-  api.add_files('tests/models.coffee', both);
-  api.add_files('tests/server_tests.coffee', ['server']);
-  api.add_files('tests/model_tests.coffee', both);
+  api.addFiles('tests/models.coffee', both);
+  api.addFiles('tests/server_tests.coffee', ['server']);
+  api.addFiles('tests/model_tests.coffee', both);
 });

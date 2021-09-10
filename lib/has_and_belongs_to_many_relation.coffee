@@ -1,10 +1,10 @@
 class @HasAndBelongsToManyRelation extends @Relation
   constructor: (instance, klass, identifier, inverse_identifier, id, args...) ->
+    super klass, args...
     @instance = instance
     @inverse_identifier = inverse_identifier
     @link = {}
     @link[identifier] = [id]
-    super klass, args...
 
   @new: (instance, klass, identifier, inverse_identifier, id, args...) ->
     new @(instance, klass, identifier, inverse_identifier, id, args...)
